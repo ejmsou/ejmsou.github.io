@@ -341,7 +341,14 @@
   .node-title { font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; line-height: 1.4; word-wrap: break-word; }
   
   .node-img-wrapper { width: 100%; background: var(--fc-bg); border: var(--border-thin); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .node-img-wrapper img { width: 100%; height: auto; object-fit: contain; filter: grayscale(100%); transition: 0.3s; display: block; }
+  .node-img-wrapper img { 
+  width: 100%; 
+  height: auto;
+  max-height: 200px; /* ★ここを追加（数値を小さくするほど画像が小さくなります） */
+  object-fit: contain; 
+  filter: grayscale(100%); 
+  transition: 0.3s; 
+  display: block; }
   .node-content:hover .node-img-wrapper img { filter: grayscale(0%); }
   .hidden-event { display: none !important; }
 
@@ -414,7 +421,29 @@
     .socials { gap: 15px; font-size: 1.2rem; flex-direction: column; }
     .socials a { display: block; text-align: center; }
   }
-
+/* ============================================================
+     SUB TAB MENU (その他の大学活動用)
+     ============================================================ */
+  .sub-game-menu {
+    display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+    border-bottom: 2px dashed var(--fc-light-gray);
+    padding-bottom: 10px;
+  }
+  .sub-menu-tab {
+    background: var(--fc-bg); border: 2px solid var(--fc-black);
+    padding: 6px 16px; font-family: var(--font-ui); font-size: 1rem;
+    color: var(--fc-dark-gray); cursor: pointer;
+    box-shadow: 3px 3px 0 var(--fc-black); transition: 0.1s;
+  }
+  .sub-menu-tab:hover {
+    color: var(--fc-red); transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--fc-black);
+  }
+  .sub-menu-tab.active {
+    color: var(--fc-bg); background: var(--fc-black); border-color: var(--fc-black);
+  }
+  
+  .sub-tab-content { display: none; animation: fadeIn 0.3s ease-in; }
+  .sub-tab-content.active { display: block; }
 </style>
 </head>
 <body>
@@ -490,15 +519,15 @@
         </div>
         <div class="work-card">
             <div class="audio-container">
-                <audio controls src="assets/audio/song3.mp3"></audio>
+                <audio controls src="assets/music/royalsalute.mp3"></audio>
             </div>
-            <h3 class="work-title">Another Composition Entry</h3>
+            <h3 class="work-title">ROYAL SALUTE<br><i>金管アンサンブル作品</i></h3>
         </div>
         <div class="work-card">
             <div class="audio-container">
-                <audio controls src="assets/audio/song4.mp3"></audio>
+                <audio controls src="assets/music/hoshiakari.mp3"></audio>
             </div>
-            <h3 class="work-title">Visual Novel Soundtrack</h3>
+            <h3 class="work-title">星明かりの序章<br><i>ゲームメインテーマ</i></h3>
         </div>
     </div>
 
@@ -627,7 +656,7 @@
                    <span class="node-date">2026-03-16</span>
                    <h3 class="node-title">第6回ゲーミングオーケストラ定期演奏会</h3>
                 </div>
-                <div class="node-img-wrapper"><img src="assets/poster/2026-03-16_dai6kai-geoke.png" alt="Poster"></div>
+                <div class="node-img-wrapper"><img src="assets/photos/0316flyer.jpg" alt="Poster"></div>
               </div>
             </div>
             <div class="tree-node" data-date="2025-10-12">
@@ -636,7 +665,7 @@
                    <span class="node-date">2025-10-12</span>
                    <h3 class="node-title">山本大雅と愉快な仲間たち in GOK<br>2025年度学園祭2日目</h3>
                 </div>
-                <div class="node-img-wrapper"><img src="assets/poster/2025-10-12_baritube.png" alt="Poster"></div>
+                <div class="node-img-wrapper"><img src="assets/poster/barityu_flyer.png" alt="Poster"></div>
               </div>
             </div>
             <div class="tree-node" data-date="2025-10-11">
@@ -645,7 +674,7 @@
                    <span class="node-date">2025-10-11</span>
                    <h3 class="node-title">Pokemon Concert in GOK<br>2025年度学園祭1日目</h3>
                 </div>
-                <div class="node-img-wrapper"><img src="assets/poster/2025-10-11_pokemon-concert.png" alt="Poster"></div>
+                <div class="node-img-wrapper"><img src="assets/poster/pokemonflyer.png" alt="Poster"></div>
               </div>
             </div>
             <div class="tree-node" data-date="2025-10-11">
@@ -654,7 +683,7 @@
                    <span class="node-date">2025-10-11</span>
                    <h3 class="node-title">第５回ゲーミングオーケストラ定期演奏会<br>2025年度学園祭1日目</h3>
                 </div>
-                <div class="node-img-wrapper"><img src="assets/poster/2025-10-11_dai5kai-geoke.png" alt="Poster"></div>
+                <div class="node-img-wrapper"><img src="assets/photos/0918flyer.JPG" alt="Poster"></div>
               </div>
             </div>
             <div class="tree-node" data-date="2025-09-18">
@@ -663,7 +692,7 @@
                    <span class="node-date">2025-09-18</span>
                    <h3 class="node-title">GOK Concert</h3>
                 </div>
-                <div class="node-img-wrapper"><img src="assets/poster/2025-09-18_gok-concert.jpg" alt="Poster"></div>
+                <div class="node-img-wrapper"><img src="assets/photos/0715flyer.JPG" alt="Poster"></div>
               </div>
             </div>
             <div class="tree-node" data-date="2025-07-15">
@@ -726,7 +755,40 @@
         <!-- タブ2: その他の大学活動 -->
         <div id="tab-other-circle" class="tab-content">
           <p class="circle-desc">GOK以外の大学活動や、関連するイベントの記録です。</p>
-          <div class="empty-data">NO DATA AVAILABLE</div>
+          
+          <!-- ▼ サブタブのメニュー ▼ -->
+          <div class="sub-game-menu">
+            <!-- onclick内の 'sub-yt-1' などのIDと紐づきます -->
+            <button class="sub-menu-tab active" onclick="switchSubTab('sub-yt-1')">Chamber Project</button>
+            <button class="sub-menu-tab" onclick="switchSubTab('sub-yt-2')">個人活動B</button>
+            <button class="sub-menu-tab" onclick="switchSubTab('sub-yt-3')">イベントC</button>
+          </div>
+
+          <!-- ▼ サブタブの中身（YouTube埋め込み） ▼ -->
+          <!-- 1つ目のタブ -->
+          <div id="sub-yt-1" class="sub-tab-content active">
+            <div class="video-container">
+              <!-- src=" " の中にYouTubeの埋め込み用URLを入れます -->
+              <iframe src="https://www.youtube.com/embed/simbXn8nPdU?si=3so3sV3XtZHBoigR" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h4 style="margin-top: 10px; font-family: var(--font-body);">2026/7/24に行われた、Music Design Chamber Projectの動画です。<div></div>自曲「魂の礼讃」が初演されました。</h4>
+          </div>
+          
+          <!-- 2つ目のタブ -->
+          <div id="sub-yt-2" class="sub-tab-content">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/2QYCTZonzB8" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <!-- 3つ目のタブ -->
+          <div id="sub-yt-3" class="sub-tab-content">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/B6FvJaW8cBQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+
+        </div>
         </div>
 
       </div>
@@ -849,19 +911,40 @@
       }
     });
   }
-
+// ==========================================
+  // SUB TAB SWITCHING LOGIC (サブタブ用)
+  // ==========================================
+  function switchSubTab(targetId) {
+    // クリックされたボタンの親要素(sub-game-menu)内にあるすべてのボタンからactiveを外す
+    const menu = event.currentTarget.parentElement;
+    const tabs = menu.querySelectorAll('.sub-menu-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    // クリックされたボタンをactiveにする
+    event.currentTarget.classList.add('active');
+    
+    // サブタブの中身を切り替える
+    const tabContents = menu.parentElement.querySelectorAll('.sub-tab-content');
+    tabContents.forEach(content => {
+      if (content.id === targetId) {
+        content.classList.add('active');
+      } else {
+        content.classList.remove('active');
+      }
+    });
+  }
   // ==========================================
   // DYNAMIC ASCII AUDIO PLAYER (PRESERVED)
   // ==========================================
   const audioTracks = [
-    { title: "川崎市職員採用PR動画の楽曲「光導」", src: "assets/music/kawasaki.mp3" },
-    { title: "MUSIC DESIGN SYMPHONIC ORCHESTRA 2025、The Sky and Sea", src: "assets/music/skyandsea.mp3" },
-    { title: "03. Song Name Three", src: "assets/audio/song3.mp3" },
-    { title: "04. Visual Novel Draft Mix", src: "assets/audio/song4.mp3" },
-    { title: "05. RPG Battle Theme 1", src: "assets/audio/song5.mp3" },
-    { title: "06. String Quartet arrangement", src: "assets/audio/song6.mp3" },
-    { title: "07. Piano Solo Concept", src: "assets/audio/song7.mp3" },
-    { title: "08. GOK Live Session Audio", src: "assets/audio/song8.mp3" }
+    { title: "百星繚乱", src: "assets/music/hyakuseiryouran.mp3" },
+    { title: "星明かりの序章", src: "assets/music/hoshiakari.mp3" },
+    { title: "風の村", src: "assets/music/erumina.mp3" },
+    { title: "妖精の森", src: "assets/music/youseinomori.mp3" },
+    { title: "Battle! Shadows", src: "assets/music/battleshadow.mp3" },
+    { title: "ROYAL SALUTE", src: "assets/music/royalsalute.mp3" },
+    { title: "撃ちてし止まむ", src: "assets/music/uchiteshiyaman.mp3" },
+    { title: "『おやじ』より", src: "assets/music/oyaji.mp3" }
   ];
 
   let currentTrackIdx = 0;
